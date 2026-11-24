@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha Aventura — Home</title>
+  <meta name="description" content="Jogo da velha reestilizado com personagens livres: projeto de HTML, CSS, JavaScript e Bootstrap da Etec.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Fontes do projeto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- CSS próprio -->
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <!-- ===== Barra de navegação ===== -->
+  <nav class="navbar navbar-expand-lg navbar-personalizada fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="assets/favicon.svg" alt="Ícone do jogo" class="brand-logo">
+        Jogo da Velha
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+              aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="dicas.html">Dicas</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <span class="hero-badge"><i class="bi bi-code-slash"></i> HTML · CSS · JavaScript · Bootstrap</span>
+            <h1 class="hero-title">Desafie seus amigos no <span class="destaque">Jogo da Velha</span> de personagens</h1>
+            <p class="hero-sub">
+              Três em linha para vencer! Escolha seu par de personagens favorito, marque o tabuleiro
+              e mostre que você tem a melhor estratégia. Projeto acadêmico da Etec Prof. José Carlos Seno Júnior.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <a href="#jogo" class="btn btn-primary btn-lg"><i class="bi bi-play-fill"></i> Jogar agora</a>
+              <a href="dicas.html" class="btn btn-outline-secondary btn-lg">Ver dicas</a>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="hero-art d-flex align-items-center justify-content-center gap-3">
+              <img src="assets/foguete.svg" alt="Personagem Foguete">
+              <img src="assets/alien.svg" alt="Personagem Alien">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Jogo ===== -->
+    <section id="jogo" class="container pb-4">
+      <h2 class="secao-titulo">Partida local (2 jogadores)</h2>
+      <p class="secao-sub">Clique em uma casa vazia para marcar seu personagem. O placar é salvo automaticamente no navegador.</p>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-7">
+          <div class="painel-jogo">
+
+            <!-- Placar -->
+            <div class="row g-2 mb-3 text-center">
+              <div class="col-4">
+                <div class="placar-card">
+                  <div class="placar-rotulo d-flex align-items-center justify-content-center gap-1">
+                    <img id="imgRotuloX" src="assets/foguete.svg" alt="X">
+                    <span id="rotuloX">Foguete</span>
+                  </div>
+                  <div class="placar-num" id="pontosX">0</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="placar-card">
+                  <div class="placar-rotulo">Empates</div>
+                  <div class="placar-num" id="pontosEmpate">0</div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="placar-card">
+                  <div class="placar-rotulo d-flex align-items-center justify-content-center gap-1">
+                    <img id="imgRotuloO" src="assets/alien.svg" alt="O">
+                    <span id="rotuloO">Alien</span>
+                  </div>
+                  <div class="placar-num" id="pontosO">0</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tabuleiro -->
+            <div class="tabuleiro" aria-label="Tabuleiro do jogo da velha">
+              <button type="button" class="celula" data-celula aria-label="Casa 1"></button>
+              <button type="button" class="celula" data-celula aria-label="Casa 2"></button>
+              <button type="button" class="celula" data-celula aria-label="Casa 3"></button>
+              <button type="button" class="celula" data-celula aria-label="Casa 4"></button>
+              <button type="button" class="celula" data-celula aria-label="Casa 5"></button>
+              <button type="button" class="celula" data-celula aria-label="Casa 6"></button>
+              <button type="button" class="celula" data-celula aria-label="Casa 7"></button>
+              <button type="button" class="celula" data-celula aria-label="Casa 8"></button>
+              <button type="button" class="celula" data-celula aria-label="Casa 9"></button>
+            </div>
+
+            <p class="status-jogo" id="statusJogo"></p>
+
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+              <button type="button" class="btn btn-primary" id="btnReiniciar"><i class="bi bi-arrow-counterclockwise"></i> Reiniciar partida</button>
+              <button type="button" class="btn btn-outline-secondary" id="btnZerar"><i class="bi bi-trash"></i> Zerar placar</button>
+            </div>
+
+            <!-- Escolha de personagens -->
+            <label class="form-label fw-bold mb-2">Escolha o par de personagens:</label>
+            <div class="row g-2 text-center">
+              <div class="col-4">
+                <button type="button" class="personagem-opcao w-100 ativa" data-par="espaco">
+                  <span class="d-flex justify-content-center gap-1">
+                    <img src="assets/foguete.svg" alt="Foguete"><img src="assets/alien.svg" alt="Alien">
+                  </span>
+                  Foguete × Alien
+                </button>
+              </div>
+              <div class="col-4">
+                <button type="button" class="personagem-opcao w-100" data-par="pets">
+                  <span class="d-flex justify-content-center gap-1">
+                    <img src="assets/gato.svg" alt="Gato"><img src="assets/cachorro.svg" alt="Cachorro">
+                  </span>
+                  Gato × Cachorro
+                </button>
+              </div>
+              <div class="col-4">
+                <button type="button" class="personagem-opcao w-100" data-par="comida">
+                  <span class="d-flex justify-content-center gap-1">
+                    <img src="assets/pizza.svg" alt="Pizza"><img src="assets/fantasma.svg" alt="Fantasma">
+                  </span>
+                  Pizza × Fantasma
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <!-- Carrossel de destaques (Bootstrap) -->
+          <div id="carouselPersonagens" class="carousel slide mb-4" data-bs-ride="carousel" data-bs-interval="3500">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselPersonagens" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselPersonagens" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselPersonagens" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="carousel-banner banner-espaco">
+                  <img src="assets/foguete.svg" alt="Foguete">
+                  <img src="assets/alien.svg" alt="Alien">
+                </div>
+                <div class="carousel-caption"><h5>Aventura espacial</h5><p>Foguete contra Alien na batalha da galáxia.</p></div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-banner banner-pets">
+                  <img src="assets/gato.svg" alt="Gato">
+                  <img src="assets/cachorro.svg" alt="Cachorro">
+                </div>
+                <div class="carousel-caption"><h5>Turma dos pets</h5><p>Gato e cachorro disputam cada casa do tabuleiro.</p></div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-banner banner-comida">
+                  <img src="assets/pizza.svg" alt="Pizza">
+                  <img src="assets/fantasma.svg" alt="Fantasma">
+                </div>
+                <div class="carousel-caption"><h5>Noite divertida</h5><p>Pizza quente contra um fantasma simpático.</p></div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselPersonagens" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselPersonagens" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+
+          <!-- Card como jogar -->
+          <div class="card card-info p-3">
+            <h5 class="card-title"><i class="bi bi-list-check me-2 text-primary"></i>Como jogar</h5>
+            <ol class="mb-3">
+              <li>Os dois jogadores se alternam em uma casa vazia.</li>
+              <li>Vence quem formar <strong>3 personagens em linha</strong> (horizontal, vertical ou diagonal).</li>
+              <li>Se todas as casas forem preenchidas sem ninguém vencer, é empate.</li>
+            </ol>
+            <a href="dicas.html" class="btn btn-primary"><i class="bi bi-lightbulb"></i> Conferir as dicas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Cards de recursos ===== -->
+    <section class="container pb-5">
+      <h2 class="secao-titulo">Por que jogar aqui?</h2>
+      <p class="secao-sub">Uma página leve, responsiva e que funciona em celular, tablet e computador.</p>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card card-info p-4 h-100">
+            <div class="icone-circ mb-3"><i class="bi bi-grid-3x3-gap"></i></div>
+            <h5>Tabuleiro interativo</h5>
+            <p class="mb-0 text-secondary">Clique nas casas com resposta imediata, casas vencedoras destacadas e reinício com um toque.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-info p-4 h-100">
+            <div class="icone-circ mb-3"><i class="bi bi-trophy"></i></div>
+            <h5>Placar persistente</h5>
+            <p class="mb-0 text-secondary">Vitórias e empates são guardados no navegador, mesmo depois de fechar a página.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-info p-4 h-100">
+            <div class="icone-circ mb-3"><i class="bi bi-people"></i></div>
+            <h5>Para dois jogadores</h5>
+            <p class="mb-0 text-secondary">Modo local para desafiar um amigo no mesmo aparelho, sem instalar nada.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Rodapé ===== -->
+  <footer class="footer-site">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-5">
+          <h5 class="text-white">Jogo da Velha Aventura</h5>
+          <p class="mb-0 small">Projeto acadêmico de Desenvolvimento Web — HTML, CSS, JavaScript e Bootstrap.</p>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="dicas.html">Dicas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 text-md-end">
+          <i class="bi bi-geo-alt me-1"></i> Etec Prof. José Carlos Seno Júnior — Olímpia/SP<br>
+          <span class="small">© <span id="anoAtual"></span> — Todos os direitos reservados.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- JavaScript próprio -->
+  <script src="js/jogo.js"></script>
+  <script src="js/principal.js"></script>
+</body>
+</html>

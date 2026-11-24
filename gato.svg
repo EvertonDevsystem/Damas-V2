@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Gato">
+  <path d="M12 24 18 8l10 8zM52 24 46 8l-10 8z" fill="#FB923C"/>
+  <path d="M15 21 19 12l7 6zM49 21 45 12l-7 6z" fill="#FBCFE8"/>
+  <circle cx="32" cy="36" r="22" fill="#FB923C"/>
+  <path d="M24 18l2 6M32 16v6M40 18l-2 6" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="24" cy="34" r="3" fill="#1F2937"/>
+  <circle cx="40" cy="34" r="3" fill="#1F2937"/>
+  <path d="M30 42h4l-2 3z" fill="#BE185D"/>
+  <path d="M32 45c-2 3-6 3-8 1M32 45c2 3 6 3 8 1" stroke="#1F2937" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M10 38h8M11 43l7-2M54 38h-8M53 43l-7-2" stroke="#7C2D12" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

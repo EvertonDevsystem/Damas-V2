@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre | Jogo da Velha Aventura</title>
+  <meta name="description" content="Pessoa desenvolvedora do projeto: trajetória, passatempos e habilidades.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-personalizada fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="assets/favicon.svg" alt="Ícone do jogo" class="brand-logo">
+        Jogo da Velha
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+              aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="dicas.html">Dicas</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" style="padding-bottom:1.5rem;">
+      <div class="container">
+        <span class="hero-badge"><i class="bi bi-person-circle"></i> Sobre o desenvolvedor</span>
+        <h1 class="hero-title">Um pouco de <span class="destaque">quem construiu este site</span></h1>
+        <p class="hero-sub">Página pessoal do aluno responsável pelo projeto. Os campos de texto e habilidades podem ser editados diretamente no arquivo <code>sobre.html</code>.</p>
+      </div>
+    </section>
+
+    <section class="container pb-5">
+      <div class="row g-4 justify-content-center">
+
+        <!-- Cartão de perfil -->
+        <div class="col-lg-4">
+          <div class="card card-info p-4 text-center h-100">
+            <!-- EDITE AQUI: troque o ícone, nome, curso e cidade conforme seu perfil -->
+            <div class="avatar-perfil mb-3"><i class="bi bi-person-fill"></i></div>
+            <h3>Everton Eduardo Martin de Carvalho</h3>
+            <p class="text-secondary mb-2">Estudante de Desenvolvimento de Sistemas</p>
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-3">
+              <span class="badge text-bg-primary">1º ano — Técnico em DS</span>
+              <span class="badge text-bg-secondary">Olímpia/SP</span>
+            </div>
+            <p class="small text-secondary mb-0"><i class="bi bi-geo-alt me-1"></i>Etec Prof. José Carlos Seno Júnior</p>
+          </div>
+        </div>
+
+        <!-- Sobre mim e hobbies -->
+        <div class="col-lg-8">
+          <div class="card card-info p-4 mb-4">
+            <h5><i class="bi bi-chat-text me-2 text-primary"></i>Sobre mim</h5>
+            <!-- EDITE AQUI: substitua este parágrafo com sua história pessoal -->
+            <p class="text-secondary mb-0">
+              Sou estudante do Ensino Médio Técnico em Desenvolvimento de Sistemas na Etec Prof. José Carlos Seno Júnior,
+              em Olímpia. Gosto de entender como as páginas e os jogos funcionam por trás da tela: desde a estrutura do
+              HTML, a aparência do CSS até a lógica dos cliques no JavaScript. Este projeto reúne essas três linguagens
+              com o Bootstrap, aplicando práticas de usabilidade, organização de pastas e publicação em repositório GitHub.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card card-info p-4 h-100">
+                <h5><i class="bi bi-heart me-2 text-primary"></i>Passatempos</h5>
+                <ul class="list-group list-group-flush small">
+                  <li class="list-group-item bg-transparent px-0"><i class="bi bi-controller me-2"></i>Jogar jogos de raciocínio e estratégia</li>
+                  <li class="list-group-item bg-transparent px-0"><i class="bi bi-book me-2"></i>Ler sobre tecnologia e ficção</li>
+                  <li class="list-group-item bg-transparent px-0"><i class="bi bi-code-square me-2"></i>Testar pequenos projetos de código</li>
+                  <li class="list-group-item bg-transparent px-0"><i class="bi bi-camera me-2"></i>Conhecer lugares e fotografar o que vejo</li>
+                  <li class="list-group-item bg-transparent px-0"><i class="bi bi-music-note-list me-2"></i>Ouvir música enquanto estudo</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card card-info p-4 h-100">
+                <h5><i class="bi bi-stars me-2 text-primary"></i>Objetivos</h5>
+                <ul class="list-group list-group-flush small">
+                  <li class="list-group-item bg-transparent px-0"><i class="bi bi-check2-circle me-2 text-success"></i>Consolidar HTML, CSS e JavaScript</li>
+                  <li class="list-group-item bg-transparent px-0"><i class="bi bi-check2-circle me-2 text-success"></i>Aprender frameworks como o Bootstrap</li>
+                  <li class="list-group-item bg-transparent px-0"><i class="bi bi-check2-circle me-2 text-success"></i>Publicar projetos no GitHub com organização</li>
+                  <li class="list-group-item bg-transparent px-0"><i class="bi bi-check2-circle me-2 text-success"></i>Avançar para projetos cada vez mais completos</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Habilidades -->
+      <div class="row g-4 mt-2">
+        <div class="col-lg-7">
+          <div class="card card-info p-4 h-100">
+            <h5><i class="bi bi-bar-chart-steps me-2 text-primary"></i>Habilidades em prática</h5>
+            <!-- EDITE AQUI: ajuste as porcentagens conforme seu desempenho -->
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small fw-bold"><span>HTML5</span><span>80%</span></div>
+              <div class="progress" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width:80%; background:#F97316;"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small fw-bold"><span>CSS3 e Bootstrap</span><span>75%</span></div>
+              <div class="progress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width:75%; background:#6366F1;"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small fw-bold"><span>JavaScript (lógica de eventos)</span><span>70%</span></div>
+              <div class="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width:70%; background:#10B981;"></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="d-flex justify-content-between small fw-bold"><span>Git e GitHub</span><span>60%</span></div>
+              <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width:60%; background:#EF4444;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card card-info p-4 h-100">
+            <h5><i class="bi bi-tools me-2 text-primary"></i>Tecnologias usadas no site</h5>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge text-bg-primary p-2">HTML5</span>
+              <span class="badge text-bg-primary p-2">CSS3</span>
+              <span class="badge text-bg-primary p-2">JavaScript</span>
+              <span class="badge text-bg-primary p-2">Bootstrap 5</span>
+              <span class="badge text-bg-primary p-2">Bootstrap Icons</span>
+              <span class="badge text-bg-primary p-2">SVG (personagens)</span>
+              <span class="badge text-bg-primary p-2">LocalStorage</span>
+              <span class="badge text-bg-primary p-2">GitHub</span>
+            </div>
+            <hr>
+            <p class="small text-secondary mb-0">
+              Estrutura organizada em pastas: <code>css/</code>, <code>js/</code> e <code>assets/</code>,
+              seguindo boas práticas de separação entre estrutura, estilo e comportamento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-site">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-5">
+          <h5 class="text-white">Jogo da Velha Aventura</h5>
+          <p class="mb-0 small">Projeto acadêmico de Desenvolvimento Web — HTML, CSS, JavaScript e Bootstrap.</p>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="dicas.html">Dicas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 text-md-end">
+          <i class="bi bi-geo-alt me-1"></i> Etec Prof. José Carlos Seno Júnior — Olímpia/SP<br>
+          <span class="small">© <span id="anoAtual"></span> — Todos os direitos reservados.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="js/principal.js"></script>
+</body>
+</html>

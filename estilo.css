@@ -1,0 +1,394 @@
+/* =========================================================
+   Jogo da Velha — Projeto Etec (HTML + CSS + Bootstrap + JS)
+   Arquivo: css/estilo.css
+   Tema: Aventura divertida (personagens livres em SVG)
+   ========================================================= */
+
+:root {
+  --fundo: #FFF8F0;
+  --card: #FFFFFF;
+  --texto: #1F2937;
+  --texto-suave: #5B6472;
+  --primaria: #F97316;
+  --primaria-escura: #C2410C;
+  --secundaria: #6366F1;
+  --suave: #FFEDD5;
+  --navbar-fundo: rgba(255, 248, 240, 0.92);
+  --borda: #E9E2D8;
+  --sucesso: #10B981;
+  --perigo: #EF4444;
+  --sombra: 0 10px 30px rgba(31, 41, 55, 0.08);
+  --raio: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, .titulo-fonte {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+main { flex: 1; }
+
+/* ---------- Barra de navegação (Bootstrap + estilo próprio) ---------- */
+.navbar-personalizada {
+  background: var(--navbar-fundo);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 14px rgba(31, 41, 55, 0.08);
+}
+
+.brand-logo { width: 38px; height: 38px; }
+
+.navbar-brand { font-family: 'Baloo 2', sans-serif; font-weight: 800; color: var(--primaria-escura); }
+
+.navbar-personalizada .nav-link {
+  color: var(--texto);
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.45rem 0.9rem !important;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar-personalizada .nav-link:hover { background: var(--suave); color: var(--primaria-escura); }
+
+.navbar-personalizada .nav-link.active {
+  background: var(--primaria);
+  color: #fff;
+}
+
+/* ---------- Hero da Home ---------- */
+.hero {
+  padding: 5.5rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--suave);
+  color: var(--primaria-escura);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+}
+
+.hero-title {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  margin: 1rem 0;
+}
+
+.hero-title .destaque { color: var(--primaria); }
+
+.hero-sub { color: var(--texto-suave); font-size: 1.08rem; max-width: 34rem; }
+
+.hero-art {
+  background: linear-gradient(145deg, #FFEDD5, #E0E7FF);
+  border-radius: var(--raio);
+  padding: 1.5rem;
+  border: 1px solid var(--borda);
+  box-shadow: var(--sombra);
+}
+
+.hero-art img { width: 46%; }
+
+/* ---------- Títulos de seção ---------- */
+.secao-titulo {
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.secao-sub {
+  text-align: center;
+  color: var(--texto-suave);
+  max-width: 42rem;
+  margin: 0 auto 2rem;
+}
+
+/* ---------- Placar ---------- */
+.placar-card {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 0.9rem 1rem;
+  text-align: center;
+  box-shadow: var(--sombra);
+}
+
+.placar-card .placar-rotulo {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.placar-card .placar-num {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primaria-escura);
+  line-height: 1.2;
+}
+
+.placar-card img { width: 34px; height: 34px; object-fit: contain; }
+
+/* ---------- Tabuleiro ---------- */
+.painel-jogo {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 1.5rem;
+}
+
+.tabuleiro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.celula {
+  aspect-ratio: 1 / 1;
+  background: #FFFDF9;
+  border: 2px solid var(--borda);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s;
+  padding: 0;
+}
+
+.celula:hover:not(.ocupada) {
+  background: var(--suave);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(249, 115, 22, 0.18);
+}
+
+.celula img { width: 74%; height: 74%; object-fit: contain; pointer-events: none; }
+
+.celula.ocupada { cursor: default; }
+
+.celula.vencedora {
+  background: #D1FAE5;
+  border-color: var(--sucesso);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.35);
+  animation: pulo 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulo {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+
+.status-jogo {
+  text-align: center;
+  font-weight: 700;
+  color: var(--texto);
+  margin: 1rem 0 0.5rem;
+  min-height: 1.6rem;
+}
+
+/* ---------- Seletor de personagens ---------- */
+.personagem-opcao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--card);
+  border: 2px solid var(--borda);
+  border-radius: 14px;
+  padding: 0.7rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+.personagem-opcao img { width: 40px; height: 40px; object-fit: contain; }
+
+.personagem-opcao:hover { border-color: var(--secundaria); }
+
+.personagem-opcao.ativa {
+  border-color: var(--primaria);
+  background: var(--suave);
+  color: var(--primaria-escura);
+}
+
+/* ---------- Carrossel (Bootstrap) ---------- */
+.carousel-banner {
+  height: 220px;
+  border-radius: var(--raio);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  overflow: hidden;
+}
+
+.carousel-banner img { height: 110px; object-fit: contain; }
+
+.banner-espaco { background: linear-gradient(135deg, #1E1B4B, #6366F1); }
+.banner-pets   { background: linear-gradient(135deg, #FDE68A, #FB923C); }
+.banner-comida { background: linear-gradient(135deg, #FCE7F3, #A78BFA); }
+
+.carousel-caption {
+  background: rgba(31, 41, 55, 0.55);
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  bottom: 14px;
+}
+
+/* ---------- Cards genéricos ---------- */
+.card-info {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-info:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(31, 41, 55, 0.12); }
+
+.icone-circ {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  background: var(--suave);
+  color: var(--primaria-escura);
+}
+
+/* ---------- Linha do tempo (História) ---------- */
+.timeline { list-style: none; padding: 0; margin: 0; position: relative; }
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: var(--borda);
+  border-radius: 3px;
+}
+
+.timeline li {
+  position: relative;
+  padding: 0 0 1.6rem 3.6rem;
+}
+
+.timeline li:last-child { padding-bottom: 0; }
+
+.timeline .ponto {
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--primaria);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  border: 3px solid var(--suave);
+  z-index: 1;
+}
+
+.timeline .timeline-data {
+  font-weight: 800;
+  color: var(--primaria-escura);
+  font-family: 'Baloo 2', sans-serif;
+}
+
+/* ---------- Sobre ---------- */
+.avatar-perfil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #FFEDD5, #E0E7FF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  margin: 0 auto;
+  border: 4px solid #fff;
+  box-shadow: var(--sombra);
+}
+
+/* ---------- Contato ---------- */
+.mapa-iframe {
+  width: 100%;
+  height: 340px;
+  border: 0;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.lista-contato li { margin-bottom: 0.8rem; }
+
+/* ---------- Rodapé ---------- */
+.footer-site {
+  background: #1F2937;
+  color: #D1D5DB;
+  margin-top: 3.5rem;
+  padding: 2rem 0 1.2rem;
+}
+
+.footer-site a { color: #FCD9B8; text-decoration: none; }
+.footer-site a:hover { text-decoration: underline; }
+
+.footer-site .bi { font-size: 1.3rem; }
+
+/* ---------- Tema por par de personagens ----------
+   O fundo do site muda junto com o par de imagens escolhido no jogo.
+   A classe é aplicada no <body> via atributo data-tema (js/jogo.js e js/principal.js). */
+body[data-tema="espaco"] {
+  --fundo: #FFF8F0;
+  --suave: #FFEDD5;
+  --navbar-fundo: rgba(255, 248, 240, 0.92);
+}
+
+body[data-tema="pets"] {
+  --fundo: #FFF1E3;
+  --suave: #FFE4C4;
+  --navbar-fundo: rgba(255, 241, 227, 0.92);
+}
+
+body[data-tema="comida"] {
+  --fundo: #F5F1FF;
+  --suave: #EAE2FF;
+  --navbar-fundo: rgba(245, 241, 255, 0.92);
+}
+
+/* ---------- Ajustes responsivos ---------- */
+@media (max-width: 575px) {
+  .tabuleiro { gap: 8px; max-width: 300px; }
+  .carousel-banner { height: 180px; }
+  .carousel-banner img { height: 84px; }
+  .hero { padding-top: 4.5rem; }
+}

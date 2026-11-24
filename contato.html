@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | Jogo da Velha Aventura</title>
+  <meta name="description" content="Contato do projeto e localização da Etec Prof. José Carlos Seno Júnior em Olímpia/SP.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-personalizada fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="assets/favicon.svg" alt="Ícone do jogo" class="brand-logo">
+        Jogo da Velha
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+              aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="historia.html">História</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre.html">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="dicas.html">Dicas</a></li>
+          <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" style="padding-bottom:1.5rem;">
+      <div class="container">
+        <span class="hero-badge"><i class="bi bi-envelope"></i> Fale conosco</span>
+        <h1 class="hero-title">Contato e <span class="destaque">localização</span></h1>
+        <p class="hero-sub">Dúvidas, sugestões de personagens ou melhorias para o jogo? Preencha o formulário ou encontre a escola no mapa.</p>
+      </div>
+    </section>
+
+    <section class="container pb-5">
+      <div class="row g-4">
+        <!-- Informações -->
+        <div class="col-lg-5">
+          <div class="card card-info p-4 h-100">
+            <h5><i class="bi bi-geo-alt me-2 text-primary"></i>Etec Prof. José Carlos Seno Júnior</h5>
+            <ul class="lista-contato list-unstyled text-secondary small">
+              <li><i class="bi bi-geo-alt-fill me-2 text-primary"></i>Rua José Píton, 165 – Vila Rodrigues</li>
+              <li><i class="bi bi-pin-map me-2 text-primary"></i>Olímpia – SP, CEP 15400-342</li>
+              <li><i class="bi bi-telephone-fill me-2 text-primary"></i>(17) 3279-9400 / 3279-9403</li>
+              <li><i class="bi bi-envelope-fill me-2 text-primary"></i>e232dir@cps.sp.gov.br (diretoria)</li>
+              <li><i class="bi bi-envelope-fill me-2 text-primary"></i>e232acad@cps.sp.gov.br (serviço acadêmico)</li>
+              <li><i class="bi bi-globe me-2 text-primary"></i><a href="http://www.etecdeolimpia.com.br" target="_blank" rel="noopener">etecdeolimpia.com.br</a></li>
+            </ul>
+            <hr>
+            <h6>Redes do projeto</h6>
+            <div class="d-flex gap-3 fs-4">
+              <a href="#" aria-label="Facebook" class="text-primary"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Instagram" class="text-primary"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="YouTube" class="text-primary"><i class="bi bi-youtube"></i></a>
+              <a href="#" aria-label="GitHub" class="text-primary"><i class="bi bi-github"></i></a>
+            </div>
+            <p class="small text-secondary mt-3 mb-0">
+              Os ícones acima podem receber os links reais das redes do aluno no arquivo <code>contato.html</code>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Formulário -->
+        <div class="col-lg-7">
+          <div class="card card-info p-4">
+            <h5><i class="bi bi-pencil-square me-2 text-primary"></i>Envie sua mensagem</h5>
+            <p class="small text-secondary">Formulário demonstrativo com validação em JavaScript (não há envio por servidor).</p>
+
+            <div id="alertaContato" class="alert d-none" role="alert"></div>
+
+            <form id="formContato" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="campoNome" class="form-label fw-bold">Nome</label>
+                  <input type="text" class="form-control" id="campoNome" placeholder="Seu nome" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="campoEmail" class="form-label fw-bold">E-mail</label>
+                  <input type="email" class="form-control" id="campoEmail" placeholder="nome@exemplo.com.br" required>
+                </div>
+                <div class="col-12">
+                  <label for="campoAssunto" class="form-label fw-bold">Assunto</label>
+                  <select id="campoAssunto" class="form-select">
+                    <option>Dúvida sobre o jogo</option>
+                    <option>Sugestão de personagem</option>
+                    <option>Conteúdo das páginas (História, Sobre, Dicas)</option>
+                    <option>Outro assunto</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label for="campoMensagem" class="form-label fw-bold">Mensagem</label>
+                  <textarea class="form-control" id="campoMensagem" rows="4" placeholder="Escreva aqui sua mensagem..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-send"></i> Enviar mensagem</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mapa -->
+      <div class="row mt-4">
+        <div class="col-12">
+          <div class="card card-info p-3">
+            <h5 class="px-2 pt-2"><i class="bi bi-map me-2 text-primary"></i>Mapa da escola</h5>
+            <iframe class="mapa-iframe" title="Mapa da Etec Prof. José Carlos Seno Júnior, Olímpia/SP"
+                    src="https://www.google.com/maps?q=Etec%20Prof.%20Jos%C3%A9%20Carlos%20Seno%20J%C3%BAnior%2C%20Rua%20Jos%C3%A9%20P%C3%ADton%20165%2C%20Ol%C3%ADmpia%20SP&output=embed"
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-site">
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-5">
+          <h5 class="text-white">Jogo da Velha Aventura</h5>
+          <p class="mb-0 small">Projeto acadêmico de Desenvolvimento Web — HTML, CSS, JavaScript e Bootstrap.</p>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="historia.html">História</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="dicas.html">Dicas</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 text-md-end">
+          <i class="bi bi-geo-alt me-1"></i> Etec Prof. José Carlos Seno Júnior — Olímpia/SP<br>
+          <span class="small">© <span id="anoAtual"></span> — Todos os direitos reservados.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="js/principal.js"></script>
+</body>
+</html>
